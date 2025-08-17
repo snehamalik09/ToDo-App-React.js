@@ -53,23 +53,23 @@ function App() {
   const handleCompleted = () => setshowFinished(!showFinished);
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-blue-100 via-white to-pink-100 flex items-center justify-center p-5">
-      <div className="bg-white shadow-2xl rounded-3xl w-full max-w-lg p-6">
-        <h1 className="text-3xl font-bold text-center text-blue-900 mb-6">My To-Do List</h1>
+    <div className="min-h-screen bg-gradient-to-r from-blue-100 via-white to-pink-100 flex items-center justify-center p-3 md:p-5">
+      <div className="bg-white shadow-2xl rounded-3xl w-full max-w-lg p-3 md:p-6">
+        <h1 className="text-2xl md:text-3xl font-bold text-center text-blue-900 mb-6">My To-Do List</h1>
 
-        <div className="flex flex-col gap-4">
-          <div className="flex gap-3">
+        <div className="flex flex-col gap-2 md:gap-4">
+          <div className="flex gap-2 md:gap-3">
             <input
               type="text"
               value={todo}
               onChange={handleChange}
-              className="flex-1 p-3 rounded-xl border-2 border-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="flex-1 p-2 md:p-3 rounded-xl border-2 border-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Add a new task..."
             />
             <button
               onClick={addBtnClicked}
               disabled={todo.length <= 2}
-              className="bg-blue-900 text-white px-5 py-3 rounded-xl hover:bg-blue-800 transition-colors disabled:opacity-50"
+              className="bg-blue-900 text-white px-2 py-1 md:px-5 md:py-3 rounded-xl hover:bg-blue-800 transition-colors disabled:opacity-50"
             >
               Add
             </button>
@@ -80,13 +80,13 @@ function App() {
               type="checkbox"
               checked={showFinished}
               onChange={handleCompleted}
-              className="w-5 h-5 accent-blue-600"
+              className="md:w-5 md:h-5 w-3 h-3 accent-blue-600"
             />
             Show Completed Tasks
           </label>
         </div>
 
-        <div className="mt-6 flex flex-col gap-4 max-h-96 overflow-y-auto">
+        <div className="mt-6 flex flex-col gap-2 md:gap-4 max-h-96 overflow-y-auto">
           {todos.length === 0 && (
             <div className="text-center text-gray-500">You have nothing to do. Relax! 🛌</div>
           )}
@@ -96,22 +96,22 @@ function App() {
               return (
                 <div
                   key={item.id}
-                  className="flex justify-between items-center p-3 bg-blue-50 rounded-xl shadow hover:shadow-md transition-shadow"
+                  className="flex justify-between items-center p-2 md:p-3 bg-blue-50 rounded-xl shadow hover:shadow-md transition-shadow"
                 >
-                  <div className="flex items-center gap-3 max-w-[70%] truncate">
+                  <div className="flex items-center gap-2 md:gap-3 max-w-[70%] truncate">
                     <input
                       type="checkbox"
                       name={item.id}
                       checked={item.isCompleted}
                       onChange={handleCheckbox}
-                      className="w-5 h-5 accent-blue-600"
+                      className="md:w-5 md:h-5 w-3 h-3 accent-blue-600"
                     />
                     <span className={item.isCompleted ? "line-through text-gray-400" : "truncate"}>
                       {item.todo}
                     </span>
                   </div>
 
-                  <div className="flex gap-3">
+                  <div className="flex gap-2 md:gap-3">
                     <span
                       onClick={() => handleEdit(item.id)}
                       className="material-symbols-outlined cursor-pointer text-blue-700 hover:text-blue-900 transition"
